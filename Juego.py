@@ -6,6 +6,16 @@ HEIGHT=750
 WIDTH=480
 BLACK=(0,0,0)
 WHITE=(255,255,255)
+
+MARI_STATING_LIVES=5
+MARI_VELOCITY=15
+PELOTA_STATING_VELOCITY=5
+PELOTA_ACCELERATION=0.5
+
+#SCORE
+score=0
+player_lives=MARI_STATING_LIVES
+pelota_velocity=PELOTA_STATING_VELOCITY
 #imagen de la mariquita
 mari_image=pygame.image.load("mari.png")
 mari_rect=mari_image.get_rect()
@@ -22,7 +32,7 @@ font_title_32=pygame.font.Font('horror.ttf',32)
 font_title_42=pygame.font.Font('horror.ttf',42)
 font_text=pygame.font.Font('texto.ttf',24)
 
-#fuentes de videojuego
+#configuracion del texto de puntaje
 score_text=font_text.render(f"Score:{score}",True,WHITE,BLACK)
 score_rect=score_text.get_rect()
 score_rect.topleft=(10,98)
@@ -36,9 +46,10 @@ while not game_over:
         if event.type==pygame.QUIT:
             game_over= True
     #actualizar los textos de puntaje y vidas
-    score_text=front_text.render(f"Score:{score}", true, WHITE,BLACK)
-    lives_text=front_text.render(f"Score:{score}", true, WHITE,BLACK)
+    score_text=font_text.render(f"Score:{score}", True, WHITE,BLACK)
+    lives_text=font_text.render(f"Score:{score}", True, WHITE,BLACK)
     displey.fill(BLACK)
+    displey.blit(score_text,score_rect)
     displey.blit(mari_image,mari_rect)
     displey.blit(pelota_image,pelota_rect)
     pygame.display.update()
