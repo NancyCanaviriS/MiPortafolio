@@ -11,10 +11,10 @@ mari_rect=mari_image.get_rect()
 mari_rect.center=(WIDTH // 2, HEIGHT //2)
 
 #imagen de la hoja 
-hoja_image=pygame.image.load("hoja.png")
-hoja_rect=hoja_image.get_rect()
-hoja_rect.left=10
-hoja_rect.bottom = HEIGHT-10
+pelota_image=pygame.image.load("pelota.png")
+pelota_rect=pelota_image.get_rect()
+pelota_rect.left=10
+pelota_rect.bottom = HEIGHT-10
 
 displey = pygame.display.set_mode((HEIGHT,WIDTH))
 pygame.display.set_caption("Juego1")
@@ -26,7 +26,7 @@ while not game_over:
             game_over= True
     displey.fill(BLACK)
     displey.blit(mari_image,mari_rect)
-
+    displey.blit(pelota_image,pelota_rect)
     pygame.display.update()
 
 
