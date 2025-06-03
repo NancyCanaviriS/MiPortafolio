@@ -13,13 +13,13 @@ clock=pygame.time.Clock()
 
 MARI_STATING_LIVES=5
 MARI_VELOCITY=15
-PELOTA_STATING_VELOCITY=5
+PELOTA_STARTING_VELOCITY=5
 PELOTA_ACCELERATION=0.5
 
 #SCORE
 score=0
 player_lives=MARI_STATING_LIVES
-pelota_velocity=PELOTA_STATING_VELOCITY
+pelota_velocity=PELOTA_STARTING_VELOCITY
 
 #color
 WHITE=(255,255,255)
@@ -34,11 +34,11 @@ font_text=pygame.font.Font('texto.ttf',24)
 #set title
 title_text=font_title_42.render("pildoras de la programacion",True,WHITE,BLACK)
 title_rect=title_text.get_rect()
-title_rect.centerx=WIDTH //2
+title_rect.centerx=WIDTH // 2
 title_rect.y=15
 
 #configuracion del texto de puntaje
-score_text=font_text.render(f"Score:{score}",True,WHITE,BLACK)
+score_text=font_text.render(f"Score:"+str(score),True,WHITE,BLACK)
 score_rect=score_text.get_rect()
 score_rect.topleft=(10,98)
 
@@ -50,12 +50,12 @@ lives_rect.topright=(WIDTH-10,90)
 #Game over title
 gameover_title=font_title_42.render("GAMEOVER",True,WHITE,BLACK)
 gameover_rect=gameover_title.get_rect()
-lives_rect.center=(WIDTH //2, HEIGHT // 2)
+gameover_rect.center=(WIDTH // 2, HEIGHT // 2)
 
-#Game over
+#Game over text
 continue_text=font_text.render("presiona cualquier tecla",True,WHITE,BLACK)
-continue_rect=continue_text.get.rect()
-continue_rect.center=(WHITE //2,HEIGHT //2)
+continue_rect=continue_text.get_rect()
+continue_rect.center=(WIDTH // 2, HEIGHT // 2+60)
 
 #imagen de la mariquita
 mari_image=pygame.image.load("mari.png")
@@ -67,19 +67,19 @@ mari_rect.bottom=HEIGHT-10
 pelota_image=pygame.image.load("pelota.png")
 pelota_rect=pelota_image.get_rect()
 pelota_rect.x= random.randint(0,WIDTH-64)
-pelota_rect.bottom = HEIGHT//2
+pelota_rect.centery = HEIGHT // 2
 
 game_over = False
 
 # game_loop
 while not game_over:
     for event in pygame.event.get():
-        if event.type==pygame.QUIT:
+            event.type==pygame.QUIT:
             game_over= True
-    keys=pygame.key.get_pressed()
-    if keys[pygame.k_a] and mari_rect.left>0:
+    keys = pygame.key.get_pressed()
+    if keys [pygame.K_a] and mari_rect.left > 0:
         mari_rect.x -= MARI_VELOCITY
-    if keys[pygame.k_d] and mari_rect.right<WIDTH:
+    if keys [pygame.K_d] and mari_rect.right<WIDTH:
         mari_rect.x += MARI_VELOCITY
 
     #movimiento de la pelota
@@ -119,7 +119,7 @@ while not game_over:
                  if event.type==pygame.KEYDOWN:
                     score=0
                     player_lives=MARI_STATING_LIVES
-                    pelota_velocity=PELOTA_STATING_VELOCITY
+                    pelota_velocity=PELOTA_STARTING_VELOCITY
                     is_pause=False
     pygame.display.update()
     clock.tick(FPS)
