@@ -2,8 +2,9 @@ import pygame
 import random
 
 pygame.init()
-HEIGHT=750
 WIDTH=480
+HEIGHT=750
+
 
 display=pygame.display.set_mode((WIDTH,HEIGHT))
 pygame.display.set_caption("pill game")
@@ -74,7 +75,7 @@ game_over = False
 # game_loop
 while not game_over:
     for event in pygame.event.get():
-            event.type==pygame.QUIT:
+        if    event.type == pygame.QUIT:
             game_over= True
     keys = pygame.key.get_pressed()
     if keys [pygame.K_a] and mari_rect.left > 0:
@@ -83,15 +84,15 @@ while not game_over:
         mari_rect.x += MARI_VELOCITY
 
     #movimiento de la pelota
-    if pelota_rect.y>HEIGHT:
-        player_lives-=1
+    if pelota_rect.y > HEIGHT:
+        player_lives -=1
         pelota_rect.x=random.randint(0,WIDTH-64)
         pelota_rect.y=140
     else:
         pelota_rect.y += pelota_velocity
     if mari_rect.colliderect(pelota_rect):
-        score+=1
-        pelota_velocity+=PELOTA_ACCELERATION
+        score +=1
+        pelota_velocity +=PELOTA_ACCELERATION
         pelota_rect.x=random.randint(0,WIDTH-64)
         pelota_rect.y=140
     score_text=font_text.render("score:" +str(score),True,WHITE,BLACK)
