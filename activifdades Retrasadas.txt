@@ -1,0 +1,21 @@
+actividad 1
+https://github.com/NancyCanaviriS/MiProyectoGit-
+
+actividad 2
+https://github.com/NancyCanaviriS/MiProyectoGit-/pulls
+
+actividad 3
+http://canaviris.infinityfreeapp.com (pagina personal) 
+--le presente por watssap solo tenia problemas con el certificado SSL
+
+actividad 4
+https://github.com/NancyCanaviriS/MiProyectoGit-/tree/master
+--ejercicio planteado en clase
+
+actividad 5
+prototipado cisco en Balsamiq 
+--le presente por watsap esta actividad
+
+
+
+
